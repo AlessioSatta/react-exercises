@@ -27,6 +27,7 @@ export class Login extends React.Component {
     render() {
         return (
             <div>
+                <h2>Login</h2>
                 <input name="username" value={this.state.username} onChange={this.handleInputChange}></input>
                 <input name="password" value={this.state.password} type="password" onChange={this.handleInputChange}></input>
                 <input name="remember" checked={this.state.remember} type="checkbox" onChange={this.handleInputChange}></input>
