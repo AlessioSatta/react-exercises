@@ -19,6 +19,7 @@ export class UncontrolledLogin extends React.Component {
     render() {
         return (
             <div>
+                <h2>Uncontrolled Login</h2>
                 <form onSubmit={this.handleFormSubmit}>
                     <input name="username"></input>
                     <input name="password" type="password"></input>
