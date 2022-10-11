@@ -8,11 +8,9 @@ export class TodoList extends React.Component {
 
     handleAddItem = (event) => {
         event.preventDefault()
-        this.setState(() => {
-            return {
+        this.setState({
                 items: [this.state.inputValue, ...this.state.items], // aggiunge all'array il nuovo elemento
                 inputValue: '' // cancella il campo di input per prepararlo ad un nuovo inserimento
-            }
         })
     }
 
@@ -23,12 +21,20 @@ export class TodoList extends React.Component {
         })
     }
 
+    handleReset = () => {
+        this.setState({
+            items: [],
+            inputValue: ''
+        })
+    }
+
     render() {
         return (
             <div>
                 <h2>Todo List</h2>
                 <input name="items" value={this.state.inputValue} onChange={this.handelInputChange}></input>
                 <button onClick={this.state.inputValue !== '' ? this.handleAddItem : undefined}>Add item</button>
+                <button onClick={this.handleReset}>Reset</button>
                 <ul>
                     {this.state.items.map((items, index) => {
                         return <li key={index + items}>{items}</li>
