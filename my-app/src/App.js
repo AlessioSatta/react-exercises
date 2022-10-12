@@ -13,7 +13,7 @@ export class App extends React.Component {
     render() {
         return (
             <div>
-                <Container>
+                <Container title='Container component'>
                     <Hello />
                     <InterectiveWelcome />
                     <Counter initialValue={0} incrementAmount={1} incrementInterval={1000} />
