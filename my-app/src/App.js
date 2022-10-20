@@ -8,8 +8,11 @@ import { Hello } from './Hello';
 import { InterectiveWelcome } from './InteractiveWelcome';
 import { LanguageContext } from './LanguageContext';
 import { Login } from './Login';
+import { Sum } from './Sum';
 import { TodoList } from './TodoList';
 import { UncontrolledLogin } from './UncontrolledLogin';
+
+const numbers = [1, 3, 5, 7, 9, 11]
 
 export class App extends React.Component {
     state = {
@@ -40,6 +43,7 @@ export class App extends React.Component {
                         <Login />
                         <UncontrolledLogin />
                         <TodoList render={(item, handleRemoveItem) => item.map((item, index) => <li key={index + item}>{item}<button onClick={() => handleRemoveItem(index)}>Remove</button></li>)} />
+                        <Sum numbers={numbers} />
                     </Container>
                 </LanguageContext.Provider>
             </div>
