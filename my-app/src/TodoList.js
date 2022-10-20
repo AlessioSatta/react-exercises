@@ -2,14 +2,14 @@ import React from "react";
 
 export class TodoList extends React.Component {
     state = {
-        inputValue: '', // valore dell'input utile per aggiorname lo stato e l'array
-        items: [] // array vuoto per l'inserimento degli elementi
+        inputValue: ['todo1', 'todo2', 'todo3'], // valore dell'input utile per aggiorname lo stato e l'array
+        item: [] // array vuoto per l'inserimento degli elementi
     }
 
     handleAddItem = (event) => {
         event.preventDefault()
         this.setState({
-            items: [this.state.inputValue, ...this.state.items], // aggiunge all'array il nuovo elemento
+            item: [this.state.inputValue, ...this.state.item], // aggiunge all'array il nuovo elemento
             inputValue: '' // cancella il campo di input per prepararlo ad un nuovo inserimento
         })
     }
@@ -25,14 +25,14 @@ export class TodoList extends React.Component {
         event.preventDefault()
 
         this.setState({
-            items: [],
+            item: [],
             inputValue: ''
         })
     }
 
     handleRemoveItem = (index) => {
         this.setState({
-            items: this.state.items.filter((e, i) => {
+            item: this.state.item.filter((e, i) => {
                 return e = i !== index
             })
         })
@@ -46,9 +46,7 @@ export class TodoList extends React.Component {
                 <button onClick={this.state.inputValue !== '' ? this.handleAddItem : undefined}>Add item</button>
                 <button onClick={this.handleReset}>Reset</button>
                 <ul>
-                    {this.state.items.map((items, index) => {
-                        return <li key={index + items}>{items} <button onClick={() => this.handleRemoveItem(index)}>Remove</button></li>
-                    })}
+                    {this.props.render(this.state.item, this.handleRemoveItem)}
                 </ul>
             </div>
         )
