@@ -4,6 +4,7 @@ import { ClickTracker } from './ClickTracker';
 import { Container } from './Container';
 import { Counter } from './Counter';
 import { DisplayLanguage } from './DisplayLanguage';
+import { GithubUser } from './GithubUser';
 import { Hello } from './Hello';
 import { InterectiveWelcome } from './InteractiveWelcome';
 import { LanguageContext } from './LanguageContext';
@@ -44,6 +45,7 @@ export class App extends React.Component {
                         <UncontrolledLogin />
                         <TodoList render={(item, handleRemoveItem) => item.map((item, index) => <li key={index + item}>{item}<button onClick={() => handleRemoveItem(index)}>Remove</button></li>)} />
                         <Sum />
+                        <GithubUser username='AlessioSatta'/>
                     </Container>
                 </LanguageContext.Provider>
             </div>
