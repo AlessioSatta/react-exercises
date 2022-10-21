@@ -23,14 +23,21 @@
 //     }
 // }
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function ClickCounter() {
     const [counter, setCounter] = useState(0)
-
+    
     function handleCounterIncrement() {
         setCounter(c => c + 1)
     }
+
+    useEffect(() => {
+        function onCounterChange() {
+            console.log(`Il valore del counter ammonta a ${counter}`)
+        }
+        onCounterChange()
+    }, [counter])
 
     return(
         <div>
