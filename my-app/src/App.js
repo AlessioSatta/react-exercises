@@ -13,6 +13,7 @@ import { Login } from './Login';
 import { Sum } from './Sum';
 import { TodoList } from './TodoList';
 import { UncontrolledLogin } from './UncontrolledLogin';
+import { CounterCustomHook } from './CounterCustomHook'
 
 const numbers = [1, 3, 5, 7, 9, 11]
 
@@ -48,6 +49,7 @@ export class App extends React.Component {
                         <Sum />
                         <GithubUser username='AlessioSatta'/>
                         <GithubUserList />
+                        <CounterCustomHook />
                     </Container>
                 </LanguageContext.Provider>
             </div>
