@@ -48,51 +48,20 @@
 //     }
 // }
 
-import React, { useState } from "react";
+import React from "react";
+import { useLogin } from "./useLogin";
 
 export function Login() {
-    const [data, setData] = useState({
-        username: '',
-        password: '',
-        remember: false
-    })
-
-    function handleInputChange(event) {
-        const { name, type, value, checked } = event.target
-
-        setData(data => {
-            return {
-                ...data,
-                [name]: type === 'checkbox' ? checked : value
-            }
-        })
-    }
-
-    function onLogin(event) {
-        event.preventDefault()
-
-        console.log(data)
-    }
-
-    function handleReset(event) {
-        event.preventDefault()
-
-        setData({
-                username: '',
-                password: '',
-                remember: false
-            }
-        )
-    }
+    const { Input, Login, Reset, data } = useLogin()
 
     return(
         <div>
             <h2>Login</h2>
-            <input placeholder="username" name="username" value={data.username} onChange={handleInputChange}></input>
-            <input placeholder="password" name="password" type="password" value={data.password} onChange={handleInputChange}></input>
-            <input type="checkbox" name="remember" checked={data.remember} onChange={handleInputChange}></input>
-            <button disabled={!data.username || !data.password} onClick={onLogin} style={data.password.length < 8 ? {backgroundColor: 'red'} : {backgroundColor: 'ButtonFace'}}>login</button>
-            <button onClick={handleReset}>Reset</button>
+            <input placeholder="username" name="username" value={data.username} onChange={Input}></input>
+            <input placeholder="password" name="password" type="password" value={data.password} onChange={Input}></input>
+            <input type="checkbox" name="remember" checked={data.remember} onChange={Input}></input>
+            <button disabled={!data.username || !data.password} onClick={Login} style={data.password.length < 8 ? {backgroundColor: 'red'} : {backgroundColor: 'ButtonFace'}}>login</button>
+            <button onClick={Reset}>Reset</button>
         </div>
     )
 }
