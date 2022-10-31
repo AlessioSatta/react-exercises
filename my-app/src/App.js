@@ -5,6 +5,7 @@ import { Container } from './Container';
 import { Counter } from './Counter';
 import { DisplayLanguage } from './DisplayLanguage';
 import { GithubUser } from './GithubUser';
+import { GithubUserCustomHook } from './GithubUserCustomHook'
 import { GithubUserList } from './GithubUserList';
 import { Hello } from './Hello';
 import { InterectiveWelcome } from './InteractiveWelcome';
@@ -50,6 +51,7 @@ export class App extends React.Component {
                         <GithubUser username='AlessioSatta'/>
                         <GithubUserList />
                         <CounterCustomHook />
+                        <GithubUserCustomHook username='AlessioSatta' />
                     </Container>
                 </LanguageContext.Provider>
             </div>
