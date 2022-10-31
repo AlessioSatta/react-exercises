@@ -15,6 +15,7 @@ import { Sum } from './Sum';
 import { TodoList } from './TodoList';
 import { UncontrolledLogin } from './UncontrolledLogin';
 import { CounterCustomHook } from './CounterCustomHook'
+import { FilteredList } from './FilteredList';
 
 const numbers = [1, 3, 5, 7, 9, 11]
 
@@ -52,6 +53,7 @@ export class App extends React.Component {
                         <GithubUserList />
                         <CounterCustomHook />
                         <GithubUserCustomHook username='AlessioSatta' />
+                        <FilteredList />
                     </Container>
                 </LanguageContext.Provider>
             </div>
