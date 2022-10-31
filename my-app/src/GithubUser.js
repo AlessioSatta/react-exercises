@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export function GithubUser({ username }) {
+export function GithubUser({ username, item }) {
     const [data, setData] = useState(null)
     const url = `https://api.github.com/users/${username}`
 
@@ -12,7 +12,8 @@ export function GithubUser({ username }) {
 
     return (
         <div>
-            {data && <h1>Lo username di Github è il seguente: {data.name}</h1>}
+            {/* {data && <h1>Lo username di Github è il seguente: {data.name}</h1>} */}
+            {item && <h2>Username in lista: {item}</h2>}
         </div>
     )
 }
