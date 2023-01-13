@@ -64,6 +64,7 @@ import { Route, Routes, Link } from "react-router-dom";
 import { Welcome } from "./Welcome";
 import { Counter } from "./Counter";
 import ShowGithubUser from "./ShowGithubUser";
+import { GithubUserList } from "./GithubUserList";
 
 export function App() {
   return (
@@ -84,7 +85,9 @@ export function App() {
             />
           }
         />
-        <Route path="/username/:username" element={<ShowGithubUser />} />
+        <Route path="/username" element={<GithubUserList />}>
+          <Route path=":username" element={<ShowGithubUser />} />
+        </Route>
         <Route path="*" element={<p>Not Found</p>} />
       </Routes>
     </div>
