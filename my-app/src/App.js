@@ -85,6 +85,7 @@ export function App() {
           }
         />
         <Route path="/username/:username" element={<ShowGithubUser />} />
+        <Route path="*" element={<p>Not Found</p>} />
       </Routes>
     </div>
   );
