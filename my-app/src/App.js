@@ -60,26 +60,32 @@
 //     }
 // }
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 import { Welcome } from "./Welcome";
 import { Counter } from "./Counter";
 import ShowGithubUser from "./ShowGithubUser";
 
 export function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Welcome name="Alessio" />} />
-      <Route
-        path="/counter"
-        element={
-          <Counter
-            initialValue={0}
-            incrementAmount={1}
-            incrementInterval={1000}
-          />
-        }
-      />
-      <Route path="/username/:username" element={<ShowGithubUser />} />
-    </Routes>
+    <div>
+      <Link to="/">Home Page</Link> | <Link to="/counter">Counter</Link> |{" "}
+      <Link to="/username/:username" username="AlessioSatta">
+        Username
+      </Link>
+      <Routes>
+        <Route path="/" element={<Welcome name="Alessio" />} />
+        <Route
+          path="/counter"
+          element={
+            <Counter
+              initialValue={0}
+              incrementAmount={1}
+              incrementInterval={1000}
+            />
+          }
+        />
+        <Route path="/username/:username" element={<ShowGithubUser />} />
+      </Routes>
+    </div>
   );
 }
