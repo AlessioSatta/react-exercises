@@ -60,15 +60,26 @@
 //     }
 // }
 
-import { Route, Routes } from 'react-router-dom';
-import { Welcome } from './Welcome'
-import { Counter } from './Counter'
+import { Route, Routes } from "react-router-dom";
+import { Welcome } from "./Welcome";
+import { Counter } from "./Counter";
+import ShowGithubUser from "./ShowGithubUser";
 
 export function App() {
-    return (
-        <Routes>
-            <Route path='/' element={<Welcome name='Alessio' />} />
-            <Route path='/counter' element={<Counter initialValue={0} incrementAmount={1} incrementInterval={1000} /> } />
-        </Routes>
-    )
+  return (
+    <Routes>
+      <Route path="/" element={<Welcome name="Alessio" />} />
+      <Route
+        path="/counter"
+        element={
+          <Counter
+            initialValue={0}
+            incrementAmount={1}
+            incrementInterval={1000}
+          />
+        }
+      />
+      <Route path="/username/:username" element={<ShowGithubUser />} />
+    </Routes>
+  );
 }
